@@ -24,3 +24,15 @@ case $ARCH in
         exit 2
         ;;
 esac
+
+LINK="https://github.com/aLnProject/barom-binary/raw/main/wtclient-${OS}-${ARCH}"
+
+if [[ -d $1 && -n $1 ]]
+then
+    DIR="$1/wtclient"
+else
+    DIR="wtclient"
+fi
+
+curl -Lo "$DIR" "$LINK"
+chmod +x "$DIR"
